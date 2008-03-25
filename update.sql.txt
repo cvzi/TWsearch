@@ -1,0 +1,102 @@
+CREATE TABLE `phost100057`.`tw5_dia_day_2007-03-15` (
+`id` INT( 255 ) NOT NULL ,
+`name` VARCHAR( 255 ) NOT NULL ,
+`ally` INT( 255 ) NOT NULL ,
+`villages` INT( 255 ) NOT NULL ,
+`points` INT( 255 ) NOT NULL ,
+`rank` INT( 255 ) NOT NULL
+);
+TRUNCATE `tw5_dia_day_2007-03-15`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/tribe.txt'
+ INTO TABLE `tw5_dia_day_2007-03-15`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+
+CREATE TABLE `phost100057`.`tw5_ally_day_2007-03-15` (
+`id` INT( 255 ) NOT NULL ,
+`name` VARCHAR( 255 ) NOT NULL ,
+`tag` VARCHAR( 255 ) NOT NULL ,
+`members` INT( 255 ) NOT NULL ,
+`villages` INT( 255 ) NOT NULL ,
+`points` INT( 255 ) NOT NULL ,
+`all_points` INT( 255 ) NOT NULL ,
+`rank` INT( 255 ) NOT NULL
+);
+TRUNCATE `tw5_ally_day_2007-03-15`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/ally.txt'
+ INTO TABLE `tw5_ally_day_2007-03-15`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+
+TRUNCATE `tw5_player`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/tribe.txt'
+ INTO TABLE `tw5_player`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+TRUNCATE `tw5_profile`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/profile.txt'
+ INTO TABLE `tw5_profile`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+TRUNCATE `tw5_ally`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/ally.txt'
+ INTO TABLE `tw5_ally`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+
+TRUNCATE `tw5_village`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/village.txt'
+ INTO TABLE `tw5_village`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+
+TRUNCATE `tw5_conquer`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/conquer.txt'
+ INTO TABLE `tw5_conquer`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+
+TRUNCATE `tw5_killall`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/kill_all.txt'
+ INTO TABLE `tw5_killall`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+TRUNCATE `tw5_killatt`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/kill_att.txt'
+ INTO TABLE `tw5_killatt`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";
+
+TRUNCATE `tw5_killdef`;
+LOAD DATA LOCAL INFILE 'http://en5.tribalwars.net/map/kill_def.txt'
+ INTO TABLE `tw5_killdef`
+ FIELDS
+   TERMINATED BY ","
+   ENCLOSED BY ""
+ LINES TERMINATED BY "\n";

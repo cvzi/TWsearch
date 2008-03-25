@@ -1,0 +1,186 @@
+--
+-- Tabellenstruktur für Tabelle `stats`
+--
+
+CREATE TABLE IF NOT EXISTS `stats` (
+  `ip` varchar(16) collate utf8_unicode_ci NOT NULL,
+  `date` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `time` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `host` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `remoteport` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `language` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `protocol` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `referer` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `file` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `browser` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `login` varchar(255) collate utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_ally`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_ally` (
+  `id` int(255) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `tag` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `members` int(255) collate utf8_unicode_ci NOT NULL,
+  `villages` int(255) collate utf8_unicode_ci NOT NULL,
+  `points` int(255) collate utf8_unicode_ci NOT NULL,
+  `all_points` int(255) collate utf8_unicode_ci NOT NULL,
+  `rank` int(255) collate utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_ally_day_2008-03-09`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_ally_day_2008-03-09` (
+  `id` int(255) NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `tag` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `members` int(255) NOT NULL,
+  `villages` int(255) NOT NULL,
+  `points` int(255) NOT NULL,
+  `all_points` int(255) NOT NULL,
+  `rank` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_attackplan`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_attackplan` (
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `time` int(255) NOT NULL,
+  `type` varchar(10) collate utf8_unicode_ci NOT NULL,
+  `masterpassword` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `userpassword` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `attacks` longtext collate utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_conquer`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_conquer` (
+  `id` int(255) NOT NULL,
+  `timestamp` int(255) NOT NULL,
+  `new` int(255) NOT NULL,
+  `old` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_dia_day_2008-03-25`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_dia_day_2008-03-25` (
+  `id` int(255) NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `ally` int(255) NOT NULL,
+  `villages` int(255) NOT NULL,
+  `points` int(255) NOT NULL,
+  `rank` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_killall`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_killall` (
+  `rank` int(255) NOT NULL,
+  `id` int(255) NOT NULL,
+  `allkills` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_killatt`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_killatt` (
+  `rank` int(255) NOT NULL,
+  `id` int(255) NOT NULL,
+  `attkills` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_killdef`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_killdef` (
+  `rank` int(255) NOT NULL,
+  `id` int(255) NOT NULL,
+  `defkills` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_player`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_player` (
+  `id` int(255) NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `ally` int(255) NOT NULL,
+  `villages` int(20) NOT NULL,
+  `points` int(255) NOT NULL,
+  `rank` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_profile`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_profile` (
+  `id` int(255) collate utf8_unicode_ci NOT NULL,
+  `birthday` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `sex` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `location` varchar(255) collate utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_settings`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_settings` (
+  `worldtoken` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `worldname` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `worldurl` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `worldurltoken` varchar(255) collate utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tw5_village`
+--
+
+CREATE TABLE IF NOT EXISTS `tw5_village` (
+  `id` int(255) NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `x` int(255) NOT NULL,
+  `y` int(255) NOT NULL,
+  `player` int(255) NOT NULL,
+  `points` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

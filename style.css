@@ -1,0 +1,293 @@
+body {
+                 background-color:rgb(222,211,185);
+                 color:saddlebrown;
+                 font-family:Sans-serif;}
+
+img {
+                 border-width:0px; }
+
+input[type='button'] {
+                 background-color:grey; }
+
+.checkbox_notchecked {
+                 background-color:red;
+				 color:black; }
+
+.checkbox_checked {
+                 background-color:green;
+				 color:black; }
+
+
+a:link {
+                 color:blue;
+                 text-decoration:none; }
+
+a:visited {
+                 color:blue;
+                 text-decoration:none; }
+
+a:hover {
+                 color:deepskyblue;
+                 text-decoration:none; }
+
+a:active {
+                 color:deepskyblue;
+                 text-decoration:none; }
+
+
+
+.foot {          font-size:x-small; }
+
+.extLink {
+                 color:darkslategray;
+                 font-weight:bold;
+                 text-decoration:none;
+                 border-color:transparent;
+                 border-width:1px;
+                 border-style:ridge; }
+
+.extLink:hover {
+                 color:darkseagreen;
+                 font-weight:bold;
+                 text-decoration:none;
+                 border-color:gold;
+                 border-width:1px;
+                 border-style:ridge; }
+
+
+.intLink:link {
+                 color:rgb(128,64,0);
+                 font-weight:bold;
+                 text-decoration:none; }
+
+.intLink:visited {
+                 color:rgb(128,64,0);
+                 font-weight:bold;
+                 text-decoration:none; }
+
+.intLink:hover {
+                 color:rgb(0,128,255);
+                 font-weight:bold;
+                 text-decoration:none; }
+
+.intLink:active {
+                 color:rgb(128,64,0);
+                 font-weight:bold;
+                 text-decoration:none; }
+
+
+
+.help {          color:#66cdaa;
+                 cursor:help; }
+
+.preferencesTABLE {
+                 background-color:rgb(222,211,185);
+                 border-color:lavender;
+                 border-width:3px;
+                 border-style:outset;
+                 color:black;
+                 font-family:Sans-Serif; }
+
+.verticalTH {    color:inherit;
+                 background-color:rgb(222,211,185);
+                 text-align:left;  }
+
+.horizontalTH {  color:inherit;
+                 background-color:rgb(222,211,185);
+                 }
+
+.preferencesListTD {
+                 background-color:rgb(230,220,200);
+                 outline-color:#d1b981;
+                 outline-width:1px;
+                 outline-style:solid;
+                 color:inherit; }
+
+.main            {
+                 background-color:rgb(241,235,221);
+                 border-color:darkgoldenrod;
+                 border-width:1px;
+                 border-style:solid;
+                 padding:50px; }
+
+.mainTD          {
+                 padding:10px; }
+
+
+.semitransparent-BorderTD {
+                 outline-color:rgb(232,221,198);
+                 outline-width:1px;
+                 outline-style:dashed;
+                 }
+
+.semitransparent-BorderTABLE td {
+                 outline-color:rgb(232,221,198);
+                 outline-width:1px;
+                 outline-style:dashed;
+                 }
+
+
+/*
++-------------------------------------------+
+|      Dropdown Menu with CSS (W3C )        |
+|      *****************************        |
++-------------------------------------------+
+| written 2007 by cuzi      cuzi@openmail.cc|
++-------------------------------------------+
+*/
+
+.menu_main {
+          background-color:rgb(222,211,185);
+          border-color:rgb(139,69,19);
+          border-style:ridge;
+          border-width:3px;
+          color:black;
+          width:auto;
+          z-index: 5;
+          font-family:sans-serif;
+          font-weight:bold;
+          float:left;
+          padding:2px; }
+
+.menu_main .menu_submenu {
+          display:none;
+          position:absolute; }
+
+.menu_main:hover .menu_submenu {
+          color:inherit;
+          background-color:inherit;
+          border-color:inherit;
+          border-style:ridge;
+          border-width:2px;
+          display:block;
+          padding:inherit; }
+
+.menu_main:hover {
+          color:black;
+          background-color:rgb(210,190,160);
+          border-style:inset; }
+
+.menu_main:hover .menu_submenu * td:hover  {
+          background-color:rgb(222,211,185);
+          color:inherit;
+          border-color:gold;
+          border-style:inset;
+          border-width:2px; }
+
+.menu_main:hover .menu_submenu * td  {
+          background-color:rgb(241,235,221);
+          color:inherit;
+          border-color:gold;
+          border-style:outset;
+          border-width:2px; }
+
+.menu_empty {
+          clear:left; }
+
+/* End of Menu
++-------------------------------------------+
+*/
+
+
+
+/* Pop down for semitransparent-BorderTD */
+
+.td_main {
+          outline-color:rgb(232,221,198);
+          outline-width:1px;
+          outline-style:dashed;
+          width: auto;
+          z-index: 5;
+          padding:2px; }
+
+
+.td_main .span_submenu {
+          display:none;
+          position:absolute; }
+
+.td_main:hover .span_submenu {
+          outline-color:rgb(232,221,198);
+          outline-width:2px;
+          outline-style:dashed;
+          background-color:rgb(232,221,198);
+          display:inline;
+          padding:inherit; }
+
+.td_main:hover .span_submenu a:hover  {
+          background-color:darkslategray;
+          color:inherit; }
+
+
+
+
+/* Negative Values */
+
+
+.negativeValues {
+          color:crimson;
+          font-weight:bold; }
+
+.equalValues {
+          color:#ffa500;
+          font-weight:bold; }
+
+.positiveValues {
+          color:forestgreen;
+          font-weight:bold; }
+
+.semi-transparentFont {
+          font-weight:bold;
+          color:rgb(175,175,175);
+          background-color:inherit; }
+
+.imageButton {
+          color:black;
+          background-color:transparent;
+          font-weight:bold;
+          text-decoration:none;
+          outline-color:gold;
+          outline-width:1px;
+          outline-style:outset; }
+
+.imageButton:hover {
+          color:black;
+          background-color:rgb(232,221,198);
+          font-weight:bold;
+          text-decoration:none;
+          outline-color:yellow;
+          outline-width:1px;
+          outline-style:inset; }
+
+
+
+.attackTable {
+            background-color:rgb(222,184,135); }
+
+.attackTable TD {
+            background-color:rgb(235,210,175); }
+
+.info {     background-color:rgb(222,184,135);
+            color:white;
+            font-size:small; }
+
+.mains {    color:inherit;
+            padding:2px;
+            font-family:Monospace;
+            font-size:small; width:100%;
+            background-color:rgb(222,184,135); }
+
+.contents { color:black;
+            padding:1px;
+            font-family:sans-serif;
+            font-size:small;
+            width:100%;
+            background-color:rgb(235,210,175);}
+
+.notesBlock {
+            position:absolute;
+            border-color:silver;
+            border-style:dotted;
+            border-width:2px;
+            padding:2px;
+            background-color:black;
+            color:white; }

@@ -1,0 +1,142 @@
+<?php
+function searchPlayerGroup($keyone,$keytwo,$keythree,$typeone,$typetwo,$typethree,$rawdata,$number)
+  {
+
+// Text - Translation
+// ##################
+
+$debug[5] = require("translation.php");
+
+
+// ##################
+
+// Weltdaten bekommen
+$settingstable = "tw5_settings";
+  $abfrage = "SELECT * FROM $settingstable";
+  $ergebnis = mysql_query($abfrage);
+$row = mysql_fetch_object($ergebnis);
+
+$worldname = $row->worldname;
+$worldtoken = $row->worldtoken;
+$urltoken = $row->worldurltoken;
+
+$playertable = $worldtoken."_player";
+$profiletable = $worldtoken."_profile";
+$villagetable = $worldtoken."_village";
+$allytable = $worldtoken."_ally";
+
+
+
+
+
+$playerArray = array();
+  $keythree  = urlencode($keythree);
+
+if($keythree != "")
+  {
+  $abfragep = "SELECT * FROM $profiletable WHERE ".$typethree." LIKE ´".$keythree."´";
+  echo $keythree;
+  }
+else
+  {
+  $abfragep = "SELECT * FROM $profiletable WHERE ".$typeone." LIKE '".$keyone."' AND ".$typetwo." LIKE '".$keytwo."'";
+  }
+
+$ergebnisp = mysql_query($abfragep);
+$i = 0;
+while($rowp = mysql_fetch_object($ergebnisp))
+{
+            if($i < '30' ){
+
+    if ($rawdata == 'raw') {
+           $playerBirthday = $rowp->birthday;
+         }
+    elseif ($rawdata == 'html') {
+           if($rowp->birthday == "0000-00-00") {
+             $playerBirthday = $text['unknown'];
+             }
+           else {
+             $tempBirthday = $rowp->birthday;
+             list($year, $month, $day) = explode("-",$tempBirthday);
+             $playerBirthday = $day." ".$text['monthsname'][$month]." ".$year;
+             }
+         }
+
+    if ($rawdata == 'raw') {
+           $playerSex = $rowp->sex;
+         }
+    elseif ($rawdata == 'html')
+         { if($rowp->sex == 'f') { $playerSex = $text['female']; }
+           elseif($rowp->sex == 'm') { $playerSex = $text['male']; }
+           elseif($rowp->sex == 'n') { $playerSex = $text['unknown']; }
+         }
+
+
+    if ($rawdata == 'raw') { $playerLocation = $rowp->location; }
+    elseif ($rawdata == 'html' and $playerLocation != "") { $playerLocation = htmlentities(urldecode($rowp->location)); }
+    elseif ($rawdata == 'html' and $playerLocation == "") { $playerLocation = $text['unknown']; }
+
+
+
+
+  $abfrage = "SELECT * FROM $playertable WHERE id LIKE '".$rowp->id."'";
+  $ergebnis = mysql_query($abfrage);
+  $row = mysql_fetch_object($ergebnis);
+
+    if ($rawdata == 'raw') { $playerName = $row->name; } elseif ($rawdata == 'html') { $playerName = urldecode($row->name); }; // $playerName
+
+    $playerId = $row->id;
+
+    $playerVillages = $row->villages;
+
+    $playerPoints = $row->points;
+
+    $playerRanking = $row->rank;
+
+    $allyId = $row->ally;
+
+
+
+
+// Stamm über StammID [$allyId] bekommen
+
+
+$ab = "SELECT * FROM $allytable WHERE id LIKE ".$row->ally;
+$er = mysql_query($ab);
+$ro = mysql_fetch_object($er);
+
+    if ($rawdata == 'raw') { $allyName = $ro->tag.",".$roname; }
+    elseif ($rawdata == 'html') { $allyName = htmlentities(urldecode($ro->tag))." (".htmlentities(urldecode($ro->name)).")"; }
+
+    $allyId = $ro->id;
+
+    if ($rawdata == 'raw') { $allyPoints = $ro->points.",".$ro->all_points; }
+    elseif ($rawdata == 'html') { $allyPoints = $ro->points." (".$text['totalPoints'].": ".$ro->all_points.")"; }
+
+    $allyMembers = $ro->members;
+
+    $allyRank = $ro->rank;
+
+
+
+
+$playerArray[$i] = array("playerId" => $playerId,
+                 "playerName" => $playerName,
+                 "playerVillages" => $playerVillages,
+                 "playerPoints" => $playerPoints,
+                 "playerRanking" => $playerRanking,
+                 "playerBirthday" => $playerBirthday,
+                 "playerSex" => $playerSex,
+                 "playerLocation" => $playerLocation,
+                 "allyName" => $allyName,
+                 "allyId" => $allyId,
+                 "allyPoints" => $allyPoints,
+                 "allyMembers" => $allyMembers,
+                 "allyRank" => $allyRank);
+$i++;
+}
+}
+
+    return $playerArray;
+}
+?>
